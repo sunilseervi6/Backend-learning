@@ -42,7 +42,11 @@ app.get("/:username/:id", (req,res)=>{
 //Query strings
 app.get("/search", (req, res)=>{
     console.log(req.query);
+    
     let {q,p} = req.query;
+    if(!q){
+        res.send("nothing searched");
+    }
      
     res.send(`You searched for the query: ${q} and page ${p}`);
 })
