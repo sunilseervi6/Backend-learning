@@ -20,6 +20,16 @@ This document captures my learnings while exploring **EJS (Embedded JavaScript)*
 
 ---
 
+npm init -y
+npm install express ejs
+
+
+## 1. Why do we use app.set("views", path.join(...))?
+
+By default, Express looks for views in a views/ folder relative to where the server runs. This line ensures that Express always correctly finds the views folder even if you run the server from a different location (like parent folder).
+
+Without it? You might get an error if Express can't find the EJS files.
+
 ## 🧪 EJS Interpolation Syntax
 
 | Syntax           | Purpose                        |
@@ -36,13 +46,3 @@ This document captures my learnings while exploring **EJS (Embedded JavaScript)*
 <h3><%= "sunil".toUpperCase() %></h3>    <!-- Outputs: SUNIL -->
 
 
-
-npm init -y
-npm install express ejs
-
-
-## 1. Why do we use app.set("views", path.join(...))?
-
-By default, Express looks for views in a views/ folder relative to where the server runs. This line ensures that Express always correctly finds the views folder even if you run the server from a different location (like parent folder).
-
-Without it? You might get an error if Express can't find the EJS files.

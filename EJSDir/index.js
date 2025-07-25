@@ -22,10 +22,13 @@ app.get("/rollDice" , (req, res)=>{
     res.render("rollDice.ejs", {dice});
 })
 
-//insta
+
+//instagram page with EJS....sample jsondata which contains info about cats and dogs
 app.get("/ig/:username" ,(req, res)=>{
-    let {username} = req.params;
-    res.render("instagram.ejs", {username});
+    const instaData = require("./data.json");
+    const {username}  = req.params;
+    const data = instaData[username];
+    res.render("instagram.ejs", {data})
 })
 
 app.listen(port , ()=>{

@@ -8,6 +8,10 @@
 <body>
     <h2>
         Dice gave value :<%= dice %>
+        <!-- conditional stmts in EJS -->
+        <% if(dice == 6)  { %>
+            <h2>Roll the dice again</h2>
+        <% } %>
     </h2>
 </body>
 </html>
