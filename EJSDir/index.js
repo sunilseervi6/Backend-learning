@@ -3,7 +3,15 @@ const app = express()
 const path = require("path")
 let port = 8080
 
+//for accessing view if server run from another directory or parent dir
+//tells express where your ejs files are..
 app.set("views",path.join(__dirname, "/views"));
+
+//serving static files using the below
+//app.use(express.static(foldername))---------syntax
+
+app.use(express.static(path.join(__dirname, "/public/css")));
+app.use(express.static(path.join(__dirname, "/public/js")));
 
 //tells express to use EJS as default template/ view engine
 //express automatically looks for a file like views/home.ejs
@@ -28,7 +36,12 @@ app.get("/ig/:username" ,(req, res)=>{
     const instaData = require("./data.json");
     const {username}  = req.params;
     const data = instaData[username];
-    res.render("instagram.ejs", {data})
+    if(data){
+        res.render("instagram.ejs", {data})
+    }
+    else{
+        res.render("error.ejs");
+    }
 })
 
 app.listen(port , ()=>{

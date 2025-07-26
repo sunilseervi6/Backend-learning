@@ -46,3 +46,21 @@ Without it? You might get an error if Express can't find the EJS files.
 <h3><%= "sunil".toUpperCase() %></h3>    <!-- Outputs: SUNIL -->
 
 
+```
+## conditional statemenst in EJS
+<% %> -- for control flow , no outputs
+have used this in rollDice.ejs
+
+## loops in EJS
+have used this in instagram.ejs
+
+## Serving static files
+these are the assests that do not chnange dynamicaly for each user or request
+syntax --- app.use(express.static(foldername))
+
+to access them in html or ejs files
+have given style and ejs using static files in instagram.ejs file , index.js
+
+## include
+It is used in EJS templates to include another EJS file inside the current template
+have used in instagram.ejs ....where i have included the head section and footer section 
